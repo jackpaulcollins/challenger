@@ -54,7 +54,9 @@ class ReportsController < ApplicationController
     hash = {}
     users = User.all
     users.each do |user|
-      hash[user.first_name] = User.find(user.id).reports.sum(&:points)
+      u = User.find(user.id)
+      sum = u.reports.sum(&:points)
+      hash[u.first_name] = sum
     end
     render json: { data: hash }
   end
