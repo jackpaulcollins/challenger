@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import axios from 'axios';
+import { API_ROOT } from '../../apiRoot'
 
 const Registration = (props) => {
   const navigate = useNavigate();
@@ -14,7 +15,7 @@ const Registration = (props) => {
 
   async function handleSubmit(e) {
     e.preventDefault();
-    let data = await axios.post("http://localhost:3001/api/registrations", {
+    let data = await axios.post(`${API_ROOT}/api/registrations`, {
       user: {
         first_name: first_name,
         last_name: last_name,

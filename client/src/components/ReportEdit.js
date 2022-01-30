@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Form, Button } from 'react-bootstrap'
 import { useParams, useLocation, useNavigate } from 'react-router-dom'
 import axios from 'axios';
+import { API_ROOT } from '../../src/apiRoot'
 
 const ReportEdit = props => {
   const [ rep_type, setRepType ] = useState("");
@@ -21,7 +22,7 @@ const ReportEdit = props => {
 
   async function handleSubmit(e) {
     e.preventDefault()
-    let data = await axios.put(`http://localhost:3001/api/reports/${id}`, {
+    let data = await axios.put(`${API_ROOT}/api/reports/${id}`, {
       rep_type: rep_type,
       rep_count: rep_count
     })
@@ -36,7 +37,7 @@ const ReportEdit = props => {
 
   async function deleteReport(e) {
     e.preventDefault()
-    let data = await axios.delete(`http://localhost:3001/api/reports/${id}`)
+    let data = await axios.delete(`${API_ROOT}/api/reports/${id}`)
     if (data) {
       alert('report deleted!')
       navigate("/");

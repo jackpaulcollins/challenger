@@ -3,6 +3,8 @@ import { useNavigate } from "react-router-dom";
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import axios from 'axios';
+import { API_ROOT } from '../../src/apiRoot'
+
 
 const CreateReport = props => {
   const navigate = useNavigate();
@@ -19,7 +21,7 @@ const CreateReport = props => {
 
   async function handleSubmit(e) {
     e.preventDefault();
-    let data = await axios.post("http://localhost:3001/api/reports", {
+    let data = await axios.post(`${API_ROOT}/api/reports`, {
       report: {
         user_id: props.currentUser.id,
         rep_type: rep_type,

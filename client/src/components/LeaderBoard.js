@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import Rank from './Rank'
+import { API_ROOT } from '../../src/apiRoot'
 
 const LeaderBoard = () => {
 
@@ -11,7 +12,7 @@ const LeaderBoard = () => {
   }, []);
 
   async function getBoard() {
-    let data = await axios.get(`http://localhost:3001/api/user_points`)
+    let data = await axios.get(`${API_ROOT}/api/user_points`)
     if (data) {
       setBoard(cleanUpResponse(data.data.data))
     }

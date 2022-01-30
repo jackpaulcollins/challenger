@@ -4,6 +4,7 @@ import Button from 'react-bootstrap/Button';
 import Alert from 'react-bootstrap/Alert';
 import Form from 'react-bootstrap/Form';
 import axios from 'axios';
+import { API_ROOT } from '../../apiRoot'
 
 const Login = (props) => {
   const navigate = useNavigate();
@@ -13,7 +14,7 @@ const Login = (props) => {
 
   async function handleSubmit(e) {
     e.preventDefault();
-    let data = await axios.post("http://localhost:3001/api/sessions", {
+    let data = await axios.post(`${API_ROOT}/api/sessions`, {
       user: {
         email: email,
         password: password,

@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Card, Button } from 'react-bootstrap'
 import { Link, useParams, useLocation } from 'react-router-dom'
 import axios from 'axios';
+import { API_ROOT } from '../../src/apiRoot'
 
 const ReportItem = props => {
 
@@ -19,7 +20,7 @@ const ReportItem = props => {
   const id = params.id
 
   async function getReport(id) {
-    let data = await axios.get(`http://localhost:3001/api/reports/${id}`)
+    let data = await axios.get(`${API_ROOT}/api/reports/${id}`)
     if (data) {
       setReportUser({
                     first_name: data.data.user.first_name,

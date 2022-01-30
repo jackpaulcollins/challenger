@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import ReportItem from './ReportItem'
 import axios from 'axios';
+import { API_ROOT } from '../../src/apiRoot'
 
 const ReportFeed = props => {
   const [reports, setReports] = useState([]);
@@ -13,7 +14,7 @@ const ReportFeed = props => {
 
 
   async function getReports() {
-    let data = await axios.get("http://localhost:3001/api/reports")
+    let data = await axios.get(`${API_ROOT}/api/reports`)
     if (data) {
       setReports(data.data.reports)
     }

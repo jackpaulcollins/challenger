@@ -70,7 +70,7 @@ export default class App extends Component {
   }
 
   handleLogout() {
-    axios.delete("http://localhost:3001/logout", {withCredentials: true}).then(
+    axios.delete(`${API_ROOT}/api/logout`, {withCredentials: true}).then(
       this.setState({
         isLoggedIn: false,
         user: {}
