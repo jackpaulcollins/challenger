@@ -21,6 +21,11 @@ const CreateReport = props => {
 
   async function handleSubmit(e) {
     e.preventDefault();
+    if (!rep_type) {
+      alert("Please provide a rep_type")
+      return
+    }
+
     let data = await axios.post(`${API_ROOT}/api/reports`, {
       report: {
         user_id: props.currentUser.id,
@@ -45,7 +50,6 @@ const CreateReport = props => {
         <Form.Control 
           as="select" 
           onChange={e => setRepType(e.target.value)}
-          required
         >
           <option>Select Your Rep Type</option>
           <option value="push_up">Push Ups</option>
