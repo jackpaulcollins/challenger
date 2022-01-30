@@ -9,6 +9,7 @@ import Dashboard from './Dashboard';
 import CreateReport from './CreateReport';
 import Report from './Report'
 import ReportEdit from './ReportEdit'
+import API_ROOT from '../../apiRoot'
 
 
 export default class App extends Component {
@@ -25,8 +26,9 @@ export default class App extends Component {
   }
 
   checkLoginStatus() {
+    console.log(API_ROOT)
     axios
-      .get("http://localhost:3001/logged_in", { withCredentials: true })
+      .get(`http://${API_ROOT}/logged_in`, { withCredentials: true })
       .then(response => {
         if (
           response.data.logged_in &&

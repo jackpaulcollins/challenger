@@ -1,2 +1,2 @@
-web: bundle exec rails s -p ${PORT:-3001}
+web: bundle exec rails s
 release: bin/rake db:migrate
