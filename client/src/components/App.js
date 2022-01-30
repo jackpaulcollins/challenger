@@ -11,7 +11,6 @@ import Report from './Report'
 import ReportEdit from './ReportEdit'
 import { API_ROOT } from '../apiRoot'
 
-
 export default class App extends Component {
   constructor() {
     super();
@@ -26,7 +25,6 @@ export default class App extends Component {
   }
 
   checkLoginStatus() {
-    console.log(API_ROOT)
     axios
       .get(`${API_ROOT}/api/logged_in`, { withCredentials: true })
       .then(response => {
@@ -82,7 +80,7 @@ export default class App extends Component {
     return(
       <div>
         <NavigationBar isLoggedIn={this.state.isLoggedIn} 
-                                  handleLogout={this.handleLogout} 
+                       handleLogout={this.handleLogout} 
         />
          <Routes>
           <Route path={"/login"} element={<Login handleLogin={this.handleLogin}
