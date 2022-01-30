@@ -1,23 +1,18 @@
 import React, { useEffect, useState } from 'react';
 import { Card, Button } from 'react-bootstrap'
-import { Link, useParams, useLocation } from 'react-router-dom'
+import { Link, useParams } from 'react-router-dom'
 import axios from 'axios';
 import { API_ROOT } from '../../src/apiRoot'
 
 const ReportItem = props => {
-
   const [report, setReport] = useState([]);
   const [reportUser, setReportUser] = useState({});
+  let params = useParams()
+  const id = params.id
 
   useEffect(() => {
-    let mounted = true;
     getReport(id);
-    return () => mounted = false;
-  }, []);
-
-  let params = useParams()
-
-  const id = params.id
+  }, [id]);
 
   async function getReport(id) {
     let data = await axios.get(`${API_ROOT}/api/reports/${id}`)

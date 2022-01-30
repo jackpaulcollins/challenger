@@ -2,14 +2,13 @@ import React, { useEffect, useState } from 'react';
 import ReportItem from './ReportItem'
 import axios from 'axios';
 import { API_ROOT } from '../../src/apiRoot'
+import '../App.css'
 
-const ReportFeed = props => {
+const ReportFeed = () => {
   const [reports, setReports] = useState([]);
 
   useEffect(() => {
-    let mounted = true;
     getReports();
-    return () => mounted = false;
   }, []);
 
 
@@ -21,16 +20,18 @@ const ReportFeed = props => {
   }
 
   return (
-    <div>
-      {reports.map(report => <ReportItem 
-                                  key={report.id}
+    <div className="report-field">
+      {reports.map(report =>  <div key={report.id} className="report-item">
+                                <ReportItem
                                   first_name={report.user.first_name}
                                   last_name={report.user.last_name}
                                   report_id={report.id}
                                   rep_type={report.rep_type}
                                   rep_count={report.rep_count}
                                   user_id={report.user_id} 
-                                />)}
+                                />
+                              </div> )}
+                              
     </div>
   )
 }

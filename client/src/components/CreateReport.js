@@ -13,7 +13,7 @@ const CreateReport = props => {
     if (!props.currentUser){
       navigate("/")
     }
-  }, [props.currentUser]);
+  }, [props.currentUser, navigate]);
 
 
   const [ rep_type, setRepType ] = useState('');
@@ -22,6 +22,7 @@ const CreateReport = props => {
   async function handleSubmit(e) {
     e.preventDefault();
     if (!rep_type) {
+      //super hacky, but I don't think you can add required to a dropdown https://github.com/JedWatson/react-select/issues/3140
       alert("Please provide a rep_type")
       return
     }

@@ -4,21 +4,20 @@ import { useParams, useLocation, useNavigate } from 'react-router-dom'
 import axios from 'axios';
 import { API_ROOT } from '../../src/apiRoot'
 
-const ReportEdit = props => {
+const ReportEdit = () => {
   const [ rep_type, setRepType ] = useState("");
   const [ rep_count, setRepCount ] = useState("");
   let params = useParams()
   const location = useLocation()
   const navigate = useNavigate()
+  const id = params.id
 
   useEffect(() => {
     if (location.state.report) {
       setRepType(location.state.report.rep_type);
       setRepCount(location.state.report.rep_count);
     }
-  }, []);
-
-  const id = params.id
+  }, [location.state.report]);
 
   async function handleSubmit(e) {
     e.preventDefault()

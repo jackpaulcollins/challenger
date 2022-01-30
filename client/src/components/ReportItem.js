@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 
 const ReportItem = props => {
   return (
-    <div>
+    <div className="card">
       <Card>
         <Card.Body>
           <Card.Text>
