@@ -20,7 +20,7 @@ const NavigationBar = props => {
       <>
         <Navbar bg="dark" variant="dark">
           <Container>
-          <Navbar.Brand href="/">Men of Integrity Rep Tracker</Navbar.Brand>
+          <Navbar.Brand href="/">MoI Rep Tracker</Navbar.Brand>
           <Nav className="me-auto">
             <Button onClick={handleLogoutClick}>Logout</Button>
           </Nav>
