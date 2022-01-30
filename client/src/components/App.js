@@ -9,7 +9,7 @@ import Dashboard from './Dashboard';
 import CreateReport from './CreateReport';
 import Report from './Report'
 import ReportEdit from './ReportEdit'
-import API_ROOT from '../../apiRoot'
+import API_ROOT from '../apiRoot'
 
 
 export default class App extends Component {
