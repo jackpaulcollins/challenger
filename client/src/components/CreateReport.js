@@ -45,6 +45,7 @@ const CreateReport = props => {
         <Form.Control 
           as="select" 
           onChange={e => setRepType(e.target.value)}
+          required
         >
           <option>Select Your Rep Type</option>
           <option value="push_up">Push Ups</option>
