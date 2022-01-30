@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  rep_type: MyString
+  rep_count: 1
+  user: one
+
+two:
+  rep_type: MyString
+  rep_count: 1
+  user: two
