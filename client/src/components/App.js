@@ -28,7 +28,7 @@ export default class App extends Component {
   checkLoginStatus() {
     console.log(API_ROOT)
     axios
-      .get(`${API_ROOT}/logged_in`, { withCredentials: true })
+      .get(`${API_ROOT}/api/logged_in`, { withCredentials: true })
       .then(response => {
         if (
           response.data.logged_in &&
