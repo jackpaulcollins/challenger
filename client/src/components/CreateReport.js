@@ -63,6 +63,7 @@ const CreateReport = props => {
       </Form.Group>
       <Form.Group className="mb-1" controlId="rep_count">
         <Form.Control 
+          required
           type="number" 
           placeholder="Rep Count" 
           name="rep_count"
