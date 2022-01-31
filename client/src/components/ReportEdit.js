@@ -50,15 +50,28 @@ const ReportEdit = () => {
     return (
       <div className="container">
         <Form className="form-field" onSubmit={e => handleSubmit(e)}>
-          <Form.Group className="mb-1" controlId="rep_type">
-            <Form.Control 
-              type="text" 
-              placeholder={location.state.report.rep_type}
-              name="rep_type"
-              value={rep_type}
-              onChange={e => setRepType(e.target.value)} 
-            />
-          </Form.Group>
+        <Form.Group controlId="formBasicSelect">
+          <Form.Control 
+            as="select" 
+            onChange={e => setRepType(e.target.value)}
+            placeholder={location.state.report.rep_type}
+            name="rep_type"
+            value={rep_type}
+          >
+            <option>Select Your Rep Type</option>
+            <option value="push_up">Push Ups</option>
+            <option value="air_squat">Air Squats</option>
+            <option value="bar_dip">Bar Dips</option>
+            <option value="bench_dip">Bench Dips</option>
+            <option value="chin_up">Chin Ups</option>
+            <option value="pull_up">Pull Ups</option>
+            <option value="handstand_push_up">Handstand Push Ups</option>
+            <option value="back_extension">Back Extensions</option>
+            <option value="mountain_climber">Mountain Climbers</option>
+            <option value="burpee">Burpees</option>
+            <option value="squat">Squats</option>
+          </Form.Control>
+        </Form.Group>
           <Form.Group className="mb-1" controlId="rep_count">
             <Form.Control 
               type="number" 
