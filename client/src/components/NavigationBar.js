@@ -19,7 +19,7 @@ const NavigationBar = props => {
       <div className="nav-bar">
         <Navbar bg="dark" variant="dark">
           <Container>
-          <Navbar.Brand href="/">MoI Rep Tracker</Navbar.Brand>
+          <Navbar.Brand href="/">Men of Integrity Rep Trackr</Navbar.Brand>
           <Nav className="me-auto">
             <Button className="button" onClick={handleLogoutClick}>Logout</Button>
           </Nav>
@@ -37,7 +37,7 @@ const NavigationBar = props => {
       <div className="nav-bar">
         <Navbar bg="dark" variant="dark">
           <Container>
-          <Navbar.Brand href="/">MoI Rep Tracker</Navbar.Brand>
+          <Navbar.Brand href="/">Men of Integrity Rep Trackr</Navbar.Brand>
           <Nav className="me-auto">
             <Button className="button" onClick={() => navigate('/login')}>Login</Button>
             <Button className="button" onClick={() => navigate('/register')}>Register</Button>
