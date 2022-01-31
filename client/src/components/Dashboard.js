@@ -16,7 +16,7 @@ const Dashboard = props => {
     )
   } else {
     return (
-      <div>Welcome, please Login on Register</div>
+      <div className="logged-out-banner">Welcome, please Login on Register</div>
     )
   }
 }
