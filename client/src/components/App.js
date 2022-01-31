@@ -94,9 +94,12 @@ export default class App extends Component {
           />
           <Route path={"/"} element={<Dashboard isLoggedIn={this.state.isLoggedIn} 
                                                 currentUser={this.state.user} />} />
-          <Route path={"/create-report"} element={<CreateReport currentUser={this.state.user} />} />
-          <Route path={`/report/:id`} element={<Report currentUser={this.state.user} />} />
-          <Route path={`/report/:id/edit`} element={<ReportEdit currentUser={this.state.user} />} />
+          <Route path={"/create-report"} element={<CreateReport currentUser={this.state.user} 
+                                                                isLoggedIn={this.state.isLoggedIn}/>} />
+          <Route path={`/report/:id`} element={<Report currentUser={this.state.user}
+                                                       isLoggedIn={this.state.isLoggedIn} />} />
+          <Route path={`/report/:id/edit`} element={<ReportEdit currentUser={this.state.user} 
+                                                                isLoggedIn={this.state.isLoggedIn}/>} />
          </Routes>
       </div>
     );

@@ -34,40 +34,46 @@ const Login = (props) => {
     if (authState){
       return (
         <Alert variant="danger">
-        Error Logging in, please refresh and try again
+        Error Logging in, please check your email and password and try again.
         </Alert>
       )
     }
   }
   
   return (
-    <div>
-      <h1>Login</h1>
-    <Form onSubmit={e => handleSubmit(e)}>
-      <Form.Group className="mb-1" controlId="email">
-        <Form.Control 
-          type="email" 
-          placeholder="Email" 
-          name="email"
-          value={email}
-          onChange={e => setEmail(e.target.value)} 
-        />
-      </Form.Group>
+    <div className="container">
+      <div className="login-registration-container">
+        <div>
+          <h1>Login</h1>
+        </div>
+        <div>
+        <Form onSubmit={e => handleSubmit(e)}>
+          <Form.Group className="mb-1" controlId="email">
+            <Form.Control 
+              type="email" 
+              placeholder="Email" 
+              name="email"
+              value={email}
+              onChange={e => setEmail(e.target.value)} 
+            />
+          </Form.Group>
 
-      <Form.Group className="mb-1" controlId="password">
-        <Form.Control 
-          type="password" 
-          placeholder="Password" 
-          name="password"
-          value={password} 
-          onChange={e => setPassword(e.target.value)} 
-        />
-      </Form.Group>
-      <Button variant="primary" type="submit">
-        Submit
-      </Button>
-    </Form>
-    {authError()}
+          <Form.Group className="mb-1" controlId="password">
+            <Form.Control 
+              type="password" 
+              placeholder="Password" 
+              name="password"
+              value={password} 
+              onChange={e => setPassword(e.target.value)} 
+            />
+          </Form.Group>
+          <Button className="button" variant="primary" type="submit">
+            Submit
+          </Button>
+        </Form>
+        {authError()}
+        </div>
+      </div>
     </div>
     );
   }

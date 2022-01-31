@@ -3,16 +3,24 @@ import { Card, Button } from 'react-bootstrap'
 import { Link, useParams } from 'react-router-dom'
 import axios from 'axios';
 import { API_ROOT } from '../../src/apiRoot'
+import { useNavigate } from "react-router-dom";
+import textDisplay from '../textTranslation';
+import '../App.css';
 
 const ReportItem = props => {
   const [report, setReport] = useState([]);
   const [reportUser, setReportUser] = useState({});
-  let params = useParams()
+  let params = useParams();
+  const navigate = useNavigate();
   const id = params.id
 
   useEffect(() => {
-    getReport(id);
-  }, [id]);
+    if (!props.isLoggedIn){
+      navigate("/")
+    } else {
+      getReport(id);
+    }
+  }, [props.isLoggedIn, id]);
 
   async function getReport(id) {
     let data = await axios.get(`${API_ROOT}/api/reports/${id}`)
@@ -32,8 +40,8 @@ const ReportItem = props => {
           <Link 
                     to= {`/report/${report.id}/edit`}
                     state={{ report: report }}>
-            <Button>
-              Edit
+            <Button className="edit-button" size="sm">
+              edit
             </Button>
           </Link>
         </div>
@@ -42,15 +50,17 @@ const ReportItem = props => {
   }
 
   return (
-    <div>
-      <Card>
+    <div className="card-container">
+      <Card className="card-view">
         <Card.Body>
-          {maybeRenderEditLink()}
+          <div>
+            {maybeRenderEditLink()}
+          </div>
           <Card.Text>
             {"User: " + reportUser.first_name + " " + reportUser.last_name}
           </Card.Text> 
           <Card.Text>
-            {"Rep Type: " + report.rep_type}
+            {"Rep Type: " + textDisplay(report.rep_type)}
           </Card.Text>
           <Card.Text>
             {"Rep Count: " + report.rep_count}

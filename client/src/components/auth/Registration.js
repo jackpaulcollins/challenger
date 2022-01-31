@@ -32,63 +32,60 @@ const Registration = (props) => {
   }
   
   return (
-    <div>
-      <h1>Register</h1>
-    <Form onSubmit={e => handleSubmit(e)}>
-      <Form.Group className="mb-1" controlId="first_name">
-        <Form.Control 
-          type="text" 
-          placeholder="First Name" 
-          name="first_name" 
-          value={first_name}
-          onChange={e => setFirstName(e.target.value)} 
-        />
-      </Form.Group>
-
-      <Form.Group className="mb-1" controlId="last_name">
-        <Form.Control 
-          type="text" 
-          placeholder="Last Name" 
-          name="last_name"
-          value={last_name} 
-          onChange={e => setLastName(e.target.value)} 
-        />
-      </Form.Group>
-
-      <Form.Group className="mb-1" controlId="email">
-        <Form.Control 
-          type="email" 
-          placeholder="Email" 
-          name="email"
-          value={email}
-          onChange={e => setEmail(e.target.value)} 
-        />
-      </Form.Group>
-
-      <Form.Group className="mb-1" controlId="password">
-        <Form.Control 
-          type="password" 
-          placeholder="Password" 
-          name="password"
-          value={password} 
-          onChange={e => setPassword(e.target.value)} 
-        />
-      </Form.Group>
-
-      <Form.Group className="mb-1" controlId="password_confirmation">
-        <Form.Control 
-          type="password" 
-          placeholder="Confirm your password" 
-          name="password_confirmation" 
-          value={password_confirmation}
-          onChange={e => setPasswordConfirmation(e.target.value)} 
-        />
-      </Form.Group>
-
-      <Button variant="primary" type="submit">
-        Submit
-      </Button>
-    </Form>
+    <div className="container">
+      <div className="login-registration-container">
+        <h1>Register</h1>
+        <Form onSubmit={e => handleSubmit(e)}>
+          <Form.Group className="mb-1" controlId="first_name">
+            <Form.Control 
+              type="text" 
+              placeholder="First Name" 
+              name="first_name" 
+              value={first_name}
+              onChange={e => setFirstName(e.target.value)} 
+            />
+          </Form.Group>
+          <Form.Group className="mb-1" controlId="last_name">
+            <Form.Control 
+              type="text" 
+              placeholder="Last Name" 
+              name="last_name"
+              value={last_name} 
+              onChange={e => setLastName(e.target.value)} 
+            />
+          </Form.Group>
+          <Form.Group className="mb-1" controlId="email">
+            <Form.Control 
+              type="email" 
+              placeholder="Email" 
+              name="email"
+              value={email}
+              onChange={e => setEmail(e.target.value)} 
+            />
+          </Form.Group>
+          <Form.Group className="mb-1" controlId="password">
+            <Form.Control 
+              type="password" 
+              placeholder="Password" 
+              name="password"
+              value={password} 
+              onChange={e => setPassword(e.target.value)} 
+            />
+          </Form.Group>
+          <Form.Group className="mb-1" controlId="password_confirmation">
+            <Form.Control 
+              type="password" 
+              placeholder="Confirm your password" 
+              name="password_confirmation" 
+              value={password_confirmation}
+              onChange={e => setPasswordConfirmation(e.target.value)} 
+            />
+          </Form.Group>
+          <Button className="button" variant="primary" type="submit">
+            Submit
+          </Button>
+        </Form>
+      </div>
     </div>
     );
   }

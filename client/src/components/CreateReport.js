@@ -10,10 +10,10 @@ const CreateReport = props => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    if (!props.currentUser){
+    if (!props.isLoggedIn){
       navigate("/")
     }
-  }, [props.currentUser, navigate]);
+  }, [props.isLoggedIn, navigate]);
 
 
   const [ rep_type, setRepType ] = useState('');
