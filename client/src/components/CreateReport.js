@@ -66,6 +66,7 @@ const CreateReport = props => {
           <option value="squat">Squats</option>
           <option value="leg_raise">Leg Raise</option>
           <option value="body_weight_row">Body Weight Row</option>
+          <option value="mile">Mile</option>
         </Form.Control>
       </Form.Group>
       <Form.Group className="mb-1" controlId="rep_count">
@@ -96,6 +97,9 @@ const CreateReport = props => {
         <li>mountain climber: 1 point</li>
         <li>burpee: 3 points</li>
         <li>squat: 2 points</li>
+        <li>leg raise: 2 points</li>
+        <li>body weight row: 3 points</li>
+        <li>one mile (walked or ran): 5 points</li>
       </ul>
     </div>
   </div>

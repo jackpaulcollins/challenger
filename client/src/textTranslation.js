@@ -25,7 +25,9 @@
     case "leg_raise":
       return "leg raises";
     case "body_weight_row":
-      return "body weight rows"
+      return "body weight rows";
+    case "mile":
+      return "miles"
   }
 };
 

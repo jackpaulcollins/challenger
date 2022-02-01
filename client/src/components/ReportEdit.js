@@ -72,6 +72,7 @@ const ReportEdit = () => {
             <option value="squat">Squats</option>
             <option value="leg_raise">Leg Raise</option>
             <option value="body_weight_row">Body Weight Row</option>
+            <option value="mile">Miles</option>
           </Form.Control>
         </Form.Group>
           <Form.Group className="mb-1" controlId="rep_count">

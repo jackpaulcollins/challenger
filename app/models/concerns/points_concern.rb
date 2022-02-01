@@ -14,7 +14,8 @@ module PointsConcern
     "burpee" => 3,
     "squat" => 2,
     "leg_raise" => 2,
-    "body_weight_row" => 2
+    "body_weight_row" => 2,
+    "mile" => 5
   }.freeze
 
   def points
