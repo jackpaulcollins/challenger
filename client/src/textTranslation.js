@@ -22,6 +22,10 @@
       return "burpees";
     case "squat":
       return "squats";
+    case "leg_raise":
+      return "leg raises";
+    case "body_weight_row":
+      return "body weight rows"
   }
 };
 
