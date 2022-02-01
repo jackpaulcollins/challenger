@@ -27,7 +27,9 @@
     case "body_weight_row":
       return "body weight rows";
     case "mile":
-      return "miles"
+      return "miles";
+    case "plank":
+      return "plank";
   }
 };
 
