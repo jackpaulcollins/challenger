@@ -36,7 +36,7 @@ const LeaderBoard = () => {
     getBoard();
     getWeeklyBoard();
     getDailyBoard();
-  }, [setTotalBoard, setWeeklyBoard]);
+  }, [setTotalBoard, setWeeklyBoard, setDailyBoard]);
 
   function cleanUpResponse(data) {
     return Object.entries(data).sort((a,b) => b[1]-a[1])
@@ -45,9 +45,9 @@ const LeaderBoard = () => {
   const selectedLeaderBoard = () => {
     if (toggle == "at") {
       return totalBoard.map(position => <Rank key={position} rank={totalBoard.indexOf(position)} position={position}/>)
-    } if (toggle == "e") {
+    } if (toggle == "w") {
       return weeklyBoard.map(position => <Rank key={position} rank={weeklyBoard.indexOf(position)} position={position}/>)
-    } else {
+    } else if (toggle == "d") {
       return dailyBoard.map(position => <Rank key={position} rank={dailyBoard.indexOf(position)} position={position}/>)
     }
   }
