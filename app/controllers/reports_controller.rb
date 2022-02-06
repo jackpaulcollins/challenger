@@ -1,4 +1,5 @@
 class ReportsController < ApplicationController
+  include PointsConcern
   
   def index
     reports = Report.
@@ -19,16 +20,19 @@ class ReportsController < ApplicationController
   end
 
   def create
-    report = Report.create!(
+    @report = Report.create!(
       user_id: params["report"]["user_id"],
       rep_type: params["report"]["rep_type"],
-      rep_count: params["report"]["rep_count"]
+      rep_count: params["report"]["rep_count"],
     )
 
-    if report
+    if @report
+      #calculate and set the points
+      @report.update!(points: @report.points)
+
       render json: { 
         status: :created,
-        report: report
+        report: @report
       }
     else
       render json: { status: 500 }

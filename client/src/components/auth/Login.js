@@ -22,7 +22,6 @@ const Login = (props) => {
     },
     { withCredentials: true})
     if (data.data.user) {
-      console.log(data)
       props.handleLogin(data)
       navigate("/");
     } else {
