@@ -45,8 +45,10 @@ const LeaderBoard = () => {
   const selectedLeaderBoard = () => {
     if (toggle == "at") {
       return totalBoard.map(position => <Rank key={position} rank={totalBoard.indexOf(position)} position={position}/>)
-    } else {
+    } if (toggle == "e") {
       return weeklyBoard.map(position => <Rank key={position} rank={weeklyBoard.indexOf(position)} position={position}/>)
+    } else {
+      return dailyBoard.map(position => <Rank key={position} rank={dailyBoard.indexOf(position)} position={position}/>)
     }
   }
 
