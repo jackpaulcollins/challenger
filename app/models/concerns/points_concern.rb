@@ -14,7 +14,7 @@ module PointsConcern
     "burpee" => 3,
     "squat" => 2,
     "leg_raise" => 2,
-    "body_weight_row" => 2,
+    "body_weight_row" => 3,
     "mile" => 5,
     "plank" => 20
   }.freeze
