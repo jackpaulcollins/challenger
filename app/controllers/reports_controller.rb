@@ -4,8 +4,9 @@ class ReportsController < ApplicationController
   def index
     reports = Report.
               all.
+              order("created_at DESC").
               includes(:user).
-              as_json(include: { user: { only: [:first_name, :last_name] } }).reverse
+              as_json(include: { user: { only: [:first_name, :last_name] } })
 
     render json: {
       reports: reports
