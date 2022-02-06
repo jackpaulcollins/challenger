@@ -57,11 +57,21 @@ class ReportsController < ApplicationController
 
   def user_points
     hash = {}
-    users = User.all
-    users.each do |user|
-      u = User.find(user.id)
-      sum = u.reports.sum(&:points)
-      hash[u.first_name + " " + u.last_name] = sum
+    User.all.each do |u|
+      user_points = Report.select("points").where("user_id = ?", u.id).sum("points")
+      hash[u.first_name + " " + u.last_name] = user_points
+    end
+    render json: { data: hash }
+  end
+
+  def current_week_user_points
+    d = Time.now
+    bow = d.at_beginning_of_week
+    eow = d.at_end_of_week
+    hash = {}
+    User.all.each do |u|
+      user_points = Report.select("points").where("user_id = ?", u.id).where("created_at BETWEEN ? and ?", bow, eow).sum("points")
+      hash[u.first_name + " " + u.last_name] = user_points
     end
     render json: { data: hash }
   end
