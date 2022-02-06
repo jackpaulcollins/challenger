@@ -75,4 +75,16 @@ class ReportsController < ApplicationController
     end
     render json: { data: hash }
   end
+
+  def current_day_user_points
+    d = Time.now
+    bod = d.at_beginning_of_day
+    eod = d.at_end_of_day
+    hash = {}
+    User.all.each do |u|
+      user_points = Report.select("points").where("user_id = ?", u.id).where("created_at BETWEEN ? and ?", bod, eod).sum("points")
+      hash[u.first_name + " " + u.last_name] = user_points
+    end
+    render json: { data: hash }
+  end
 end

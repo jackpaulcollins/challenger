@@ -7,6 +7,7 @@ Rails.application.routes.draw do
     get :logged_in, to: "sessions#logged_in"
     get :user_points, to: "reports#user_points"
     get :current_week_user_points, to: "reports#current_week_user_points"
+    get :current_day_user_points, to: "reports#current_day_user_points"
     root to: "static#home"
   end
 

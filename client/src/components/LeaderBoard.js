@@ -8,13 +8,21 @@ const LeaderBoard = () => {
 
   const [totalBoard, setTotalBoard] = useState([]);
   const [weeklyBoard, setWeeklyBoard] = useState([]);
-  const [toggle, setToggle] = useState("at");
+  const [dailyBoard, setDailyBoard] = useState([]);
+  const [toggle, setToggle] = useState("d");
 
   useEffect(() => {
     async function getBoard() {
       let data = await axios.get(`${API_ROOT}/api/user_points`)
       if (data) {
         setTotalBoard(cleanUpResponse(data.data.data))
+      }
+    }
+
+    async function getDailyBoard() {
+      let data = await axios.get(`${API_ROOT}/api/current_day_user_points`)
+      if (data) {
+        setDailyBoard(cleanUpResponse(data.data.data))
       }
     }
 
@@ -27,6 +35,7 @@ const LeaderBoard = () => {
 
     getBoard();
     getWeeklyBoard();
+    getDailyBoard();
   }, [setTotalBoard, setWeeklyBoard]);
 
   function cleanUpResponse(data) {
@@ -46,8 +55,9 @@ const LeaderBoard = () => {
   return (
     <div>
       <h4>Leader Board!</h4>
+      <Button className="button" onClick={() => setToggle("d")}>Daily</Button>
       <Button className="button" onClick={() => setToggle("at")}>All-time</Button>
-      <Button className="button" onClick={() => setToggle("w")}>weekly</Button>
+      <Button className="button" onClick={() => setToggle("w")}>Weekly</Button>
       {selectedLeaderBoard()}
     </div>
   )
