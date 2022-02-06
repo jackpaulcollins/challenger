@@ -4,7 +4,7 @@ class ReportsController < ApplicationController
     reports = Report.
               all.
               includes(:user).
-              as_json(include: { user: { only: [:first_name, :last_name] } })
+              as_json(include: { user: { only: [:first_name, :last_name] } }).reverse
 
     render json: {
       reports: reports
