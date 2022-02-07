@@ -44,22 +44,24 @@ const LeaderBoard = () => {
   }
 
   const selectedLeaderBoard = () => {
-    if (toggle == "at") {
-      return totalBoard.map(position => <Rank key={position} rank={totalBoard.indexOf(position)} position={position}/>)
-    } if (toggle == "w") {
-      return weeklyBoard.map(position => <Rank key={position} rank={weeklyBoard.indexOf(position)} position={position}/>)
-    } else if (toggle == "d") {
-      return dailyBoard.map(position => <Rank key={position} rank={dailyBoard.indexOf(position)} position={position}/>)
-    }
+    return totalBoard.map(position => <Rank key={position} rank={totalBoard.indexOf(position)} position={position}/>)
+    // wow, fuck timezones
+    // if (toggle == "at") {
+    //   return totalBoard.map(position => <Rank key={position} rank={totalBoard.indexOf(position)} position={position}/>)
+    // } if (toggle == "w") {
+    //   return weeklyBoard.map(position => <Rank key={position} rank={weeklyBoard.indexOf(position)} position={position}/>)
+    // } else if (toggle == "d") {
+    //   return dailyBoard.map(position => <Rank key={position} rank={dailyBoard.indexOf(position)} position={position}/>)
+    // }
   }
   // console.log(toggle)
   // console.log(dailyBoard)
   return (
     <div>
       <h4>Leader Board!</h4>
-      <Button className="button" onClick={() => setToggle("d")}>Daily</Button>
-      <Button className="button" onClick={() => setToggle("at")}>All-time</Button>
-      <Button className="button" onClick={() => setToggle("w")}>Weekly</Button>
+      {/* <Button className="button" onClick={() => setToggle("d")}>Daily</Button> */}
+      {/* <Button className="button" onClick={() => setToggle("at")}>All-time</Button> */}
+      {/* <Button className="button" onClick={() => setToggle("w")}>Weekly</Button> */}
       {selectedLeaderBoard()}
     </div>
   )
