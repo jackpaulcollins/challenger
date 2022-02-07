@@ -25,7 +25,7 @@ class ReportsController < ApplicationController
       user_id: params["report"]["user_id"],
       rep_type: params["report"]["rep_type"],
       rep_count: params["report"]["rep_count"],
-      created_at: Date.today
+      created_at: params["report"]["date"]
     )
 
     if @report
