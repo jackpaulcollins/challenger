@@ -52,8 +52,6 @@ const LeaderBoard = () => {
     }
   }
 
-  console.log(weeklyBoard)
-
   return (
     <div>
       <h4>Leader Board!</h4>
