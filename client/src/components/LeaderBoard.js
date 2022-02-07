@@ -22,6 +22,7 @@ const LeaderBoard = () => {
     async function getDailyBoard() {
       let data = await axios.get(`${API_ROOT}/api/current_day_user_points`)
       if (data) {
+        console.log(data.data.data)
         setDailyBoard(cleanUpResponse(data.data.data))
       }
     }
@@ -36,7 +37,7 @@ const LeaderBoard = () => {
     getBoard();
     getWeeklyBoard();
     getDailyBoard();
-  }, [setTotalBoard, setWeeklyBoard, setDailyBoard]);
+  }, [setTotalBoard, setWeeklyBoard, setDailyBoard, toggle]);
 
   function cleanUpResponse(data) {
     return Object.entries(data).sort((a,b) => b[1]-a[1])
@@ -51,7 +52,8 @@ const LeaderBoard = () => {
       return dailyBoard.map(position => <Rank key={position} rank={dailyBoard.indexOf(position)} position={position}/>)
     }
   }
-
+  // console.log(toggle)
+  // console.log(dailyBoard)
   return (
     <div>
       <h4>Leader Board!</h4>
