@@ -9,7 +9,7 @@ const LeaderBoard = () => {
   const [totalBoard, setTotalBoard] = useState([]);
   const [weeklyBoard, setWeeklyBoard] = useState([]);
   const [dailyBoard, setDailyBoard] = useState([]);
-  const [toggle, setToggle] = useState("d");
+  const [toggle, setToggle] = useState("at");
 
   useEffect(() => {
     async function getBoard() {
@@ -56,9 +56,9 @@ const LeaderBoard = () => {
   return (
     <div>
       <h4>Leader Board!</h4>
-      <Button className="button" onClick={() => setToggle("d")}>Daily</Button>
+      {/* <Button className="button" onClick={() => setToggle("d")}>Daily</Button> */}
       <Button className="button" onClick={() => setToggle("at")}>All-time</Button>
-      <Button className="button" onClick={() => setToggle("w")}>Weekly</Button>
+      {/* <Button className="button" onClick={() => setToggle("w")}>Weekly</Button> */}
       {selectedLeaderBoard()}
     </div>
   )
