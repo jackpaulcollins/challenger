@@ -15,6 +15,7 @@ const LeaderBoard = () => {
     async function getBoard() {
       let data = await axios.get(`${API_ROOT}/api/user_points`)
       if (data) {
+        console.log(data.data.data)
         setTotalBoard(cleanUpResponse(data.data.data))
       }
     }
@@ -56,9 +57,9 @@ const LeaderBoard = () => {
   return (
     <div>
       <h4>Leader Board!</h4>
-      {/* <Button className="button" onClick={() => setToggle("d")}>Daily</Button> */}
+      <Button className="button" onClick={() => setToggle("d")}>Daily</Button>
       <Button className="button" onClick={() => setToggle("at")}>All-time</Button>
-      {/* <Button className="button" onClick={() => setToggle("w")}>Weekly</Button> */}
+      <Button className="button" onClick={() => setToggle("w")}>Weekly</Button>
       {selectedLeaderBoard()}
     </div>
   )

@@ -66,11 +66,11 @@ class ReportsController < ApplicationController
   end
 
   def current_week_user_points
-    d = Date.today
-    bow = d.at_beginning_of_week
-    eow = d.at_end_of_week
     hash = {}
     User.all.each do |u|
+      d = Time.now.utc.in_time_zone(u.time_zone)
+      bow = d.at_beginning_of_week
+      eow = d.at_end_of_week
       user_points = Report.select("points").where("user_id = ?", u.id).where("created_at BETWEEN ? and ?", bow, eow).sum("points")
       hash[u.first_name + " " + u.last_name] = user_points
     end
@@ -78,11 +78,15 @@ class ReportsController < ApplicationController
   end
 
   def current_day_user_points
-    d = Date.today
+
     hash = {}
     User.all.each do |u|
-      user_points = Report.select("points").where("user_id = ?", u.id).where("created_at = ?", d).sum("points")
+      d = Time.now.utc.in_time_zone(u.time_zone)
+      bod = d.at_beginning_of_day
+      eod = d.at_end_of_day
+      user_points = Report.select("points").where("user_id = ?", u.id).where("created_at BETWEEN ? AND ?", bod, eod).sum("points")
       hash[u.first_name + " " + u.last_name] = user_points
+      hash["timezone"] = u.time_zone
     end
     render json: { data: hash }
   end
