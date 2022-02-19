@@ -60,7 +60,15 @@ class ReportsController < ApplicationController
     hash = {}
     User.all.each do |u|
       user_points = Report.select("points").where("user_id = ?", u.id).sum("points")
-      hash[u.first_name + " " + u.last_name] = user_points
+      hash.merge!(
+        user:{
+          first_name: u.first_name,
+          last_name:u.last_name,
+          points: user_points,
+          time_zone: u.time_zone
+        }
+      )
+      debugger
     end
     render json: { data: hash }
   end
@@ -72,7 +80,14 @@ class ReportsController < ApplicationController
       bow = d.at_beginning_of_week
       eow = d.at_end_of_week
       user_points = Report.select("points").where("user_id = ?", u.id).where("created_at BETWEEN ? and ?", bow, eow).sum("points")
-      hash[u.first_name + " " + u.last_name] = user_points
+      hash.merge!(
+        user:{
+          first_name: u.first_name,
+          last_name:u.last_name,
+          points: user_points,
+          time_zone: u.time_zone
+        }
+      )
     end
     render json: { data: hash }
   end
@@ -85,8 +100,14 @@ class ReportsController < ApplicationController
       bod = d.at_beginning_of_day
       eod = d.at_end_of_day
       user_points = Report.select("points").where("user_id = ?", u.id).where("created_at BETWEEN ? AND ?", bod, eod).sum("points")
-      hash[u.first_name + " " + u.last_name] = user_points
-      hash["timezone"] = u.time_zone
+      hash.merge!(
+        user:{
+          first_name: u.first_name,
+          last_name:u.last_name,
+          points: user_points,
+          time_zone: u.time_zone
+        }
+      )
     end
     render json: { data: hash }
   end
