@@ -5,12 +5,26 @@
 }
 
 .report-feed {
-  width: auto;
+  width: 70%;
   padding-right: 5%;
   overflow-y: auto;
   height: 80vh;
   margin-top: 2%;
   margin-left: 20%;
+}
+
+.report-item {
+  width: 80%;
+  margin-bottom: 5%;
+}
+
+.card {
+  background-color:#ededed;
+  font-size: smaller;
+  padding: 2%;
+  border: none;
+  font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  font-weight: 50;
 }
 
 .leaderboard {
@@ -22,7 +36,7 @@
 
 .rank {
   text-align: left;
-  margin-left: 30%;
+  margin-left: 25%;
 }
 
 .lead-button {
@@ -35,18 +49,8 @@
   color:cornflowerblue
 }
 
-.report-item {
-  display: flex;
-  margin-bottom: 5%;
-}
-
 .nav-bar {
   margin-bottom: 2%;
-}
-
-.card {
-  background-color:#d5ded7;
-  font-size: smaller;
 }
 
 .button {

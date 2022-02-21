@@ -16,14 +16,9 @@ const ReportItem = props => {
           </Link>
           </Card.Text> 
           <Card.Text>
-          {props.first_name + " " + props.last_name + " reported reps!"}
-          </Card.Text>
-          <Card.Text>
-          {"Rep Type: " + textDisplay(props.rep_type)}
-          </Card.Text>
-          <Card.Text>
-          {"Reps: " + props.rep_count}
-          </Card.Text>     
+          {props.first_name + " " + props.last_name[0]+ "." + " reported " +
+          props.rep_count + " " +  textDisplay(props.rep_type)}
+          </Card.Text>  
         </Card.Body>
       </Card>
     </div>
