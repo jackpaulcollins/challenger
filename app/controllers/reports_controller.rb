@@ -25,7 +25,7 @@ class ReportsController < ApplicationController
       user_id: params["report"]["user_id"],
       rep_type: params["report"]["rep_type"],
       rep_count: params["report"]["rep_count"],
-      created_at: params["report"]["date"]
+      created_at: Time.now.utc
     )
 
     if @report
@@ -58,57 +58,44 @@ class ReportsController < ApplicationController
 
   def user_points
     hash = {}
-    User.all.each do |u|
+    User.find_each.each do |u|
       user_points = Report.select("points").where("user_id = ?", u.id).sum("points")
       hash.merge!(
-        user:{
-          first_name: u.first_name,
-          last_name:u.last_name,
-          points: user_points,
-          time_zone: u.time_zone
-        }
+        u.first_name + " " + u.last_name => user_points
       )
-      debugger
     end
-    render json: { data: hash }
+    arr = hash.sort
+    render json: { data: arr}
   end
 
   def current_week_user_points
     hash = {}
-    User.all.each do |u|
+    User.find_each.each do |u|
       d = Time.now.utc.in_time_zone(u.time_zone)
       bow = d.at_beginning_of_week
       eow = d.at_end_of_week
       user_points = Report.select("points").where("user_id = ?", u.id).where("created_at BETWEEN ? and ?", bow, eow).sum("points")
       hash.merge!(
-        user:{
-          first_name: u.first_name,
-          last_name:u.last_name,
-          points: user_points,
-          time_zone: u.time_zone
-        }
+        u.first_name + " " + u.last_name => user_points
       )
     end
-    render json: { data: hash }
+    arr = hash.sort
+    render json: { data: arr}
   end
 
   def current_day_user_points
 
     hash = {}
-    User.all.each do |u|
+    User.find_each.each do |u|
       d = Time.now.utc.in_time_zone(u.time_zone)
       bod = d.at_beginning_of_day
       eod = d.at_end_of_day
       user_points = Report.select("points").where("user_id = ?", u.id).where("created_at BETWEEN ? AND ?", bod, eod).sum("points")
       hash.merge!(
-        user:{
-          first_name: u.first_name,
-          last_name:u.last_name,
-          points: user_points,
-          time_zone: u.time_zone
-        }
+        u.first_name + " " + u.last_name => user_points
       )
     end
-    render json: { data: hash }
+    arr = hash.sort
+    render json: { data: arr}
   end
 end

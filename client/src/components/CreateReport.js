@@ -26,13 +26,11 @@ const CreateReport = props => {
       alert("Please provide a rep_type")
       return
     }
-    const date = new Date();
     let data = await axios.post(`${API_ROOT}/api/reports`, {
       report: {
         user_id: props.currentUser.id,
         rep_type: rep_type,
         rep_count: rep_count,
-        created_at: date
       }
     })
 

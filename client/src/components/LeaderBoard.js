@@ -15,23 +15,21 @@ const LeaderBoard = () => {
     async function getBoard() {
       let data = await axios.get(`${API_ROOT}/api/user_points`)
       if (data) {
-        console.log(data.data.data)
-        setTotalBoard(cleanUpResponse(data.data.data))
+        setTotalBoard(data.data.data)
       }
     }
 
     async function getDailyBoard() {
       let data = await axios.get(`${API_ROOT}/api/current_day_user_points`)
       if (data) {
-        console.log(data.data.data)
-        setDailyBoard(cleanUpResponse(data.data.data))
+        setDailyBoard(data.data.data)
       }
     }
 
     async function getWeeklyBoard() {
       let data = await axios.get(`${API_ROOT}/api/current_week_user_points`)
       if (data) {
-        setWeeklyBoard(cleanUpResponse(data.data.data))
+        setWeeklyBoard(data.data.data)
       }
     }
 
@@ -39,10 +37,6 @@ const LeaderBoard = () => {
     getWeeklyBoard();
     getDailyBoard();
   }, [setTotalBoard, setWeeklyBoard, setDailyBoard, toggle]);
-
-  function cleanUpResponse(data) {
-    return Object.entries(data).sort((a,b) => b[1]-a[1])
-  }
 
   const selectedLeaderBoard = () => {
     if (toggle == "at") {
