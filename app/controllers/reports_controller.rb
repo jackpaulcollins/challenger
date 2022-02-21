@@ -64,7 +64,7 @@ class ReportsController < ApplicationController
         u.first_name + " " + u.last_name => user_points
       )
     end
-    arr = hash.sort
+    arr = hash.sort_by { |k,v| -v}
     render json: { data: arr}
   end
 
@@ -79,7 +79,7 @@ class ReportsController < ApplicationController
         u.first_name + " " + u.last_name => user_points
       )
     end
-    arr = hash.sort
+    arr = hash.sort_by { |k,v| -v}
     render json: { data: arr}
   end
 
@@ -95,7 +95,7 @@ class ReportsController < ApplicationController
         u.first_name + " " + u.last_name => user_points
       )
     end
-    arr = hash.sort
+    arr = hash.sort_by { |k,v| -v}
     render json: { data: arr}
   end
 end
