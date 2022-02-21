@@ -20,7 +20,7 @@ const ReportFeed = () => {
   }
 
   return (
-    <div className="report-field">
+    <div>
       {reports.map(report =>  <div key={report.id} className="report-item">
                                 <ReportItem
                                   first_name={report.user.first_name}

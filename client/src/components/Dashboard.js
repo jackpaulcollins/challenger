@@ -8,9 +8,14 @@ const Dashboard = props => {
   if (props.isLoggedIn) {
     return (
       <div>
+        <p className="intro">Welcome, {props.currentUser.first_name}</p>
         <div className="container">
-          <ReportFeed />
-          <LeaderBoard />
+          <div className="report-feed">
+            <ReportFeed />
+          </div>
+          <div className="leaderboard">
+            <LeaderBoard />
+          </div>
         </div>
       </div>
     )
