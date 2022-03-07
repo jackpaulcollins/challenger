@@ -24,8 +24,8 @@ const NavigationBar = props => {
             <Button className="button" onClick={handleLogoutClick}>Logout</Button>
           </Nav>
           <Nav>
-          <Button className="button" onClick={() => navigate('/')}>
-            Reporting is complete!
+          <Button className="button" onClick={() => navigate('/create-report')}>
+            Report reps!!
           </Button>
           </Nav>
           </Container>
